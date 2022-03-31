@@ -1,6 +1,10 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+//menggunakan fragment
+import MainLayout from "../layouts/MainLayout";
+
+// jika tidak menggunakan fragment
+// import Navbar from "../components/Navbar";
+// import Footer from "../components/Footer";
 
 class Home extends React.Component{
     state = {
@@ -36,19 +40,17 @@ class Home extends React.Component{
     render(){
         const {skills} = this.state;
         return(
-        <div>
-            <Navbar/>
-                <h1 style={{ paddingLeft: "6rem" }}>Home Page</h1>
-                <div style={container}>
-                    {skills.map(item => 
-                        <div key={item.id} style={card}>
-                            <img src={item.image} alt={item.name} style={img}/>
-                            <h3>{item.name}</h3>
-                        </div>    
-                    )}
-                </div>
-            <Footer/>
-        </div>
+        <MainLayout>
+            <h1 style={{ paddingLeft: "6rem" }}>Home Page</h1>
+            <div style={container}>
+                {skills.map(item => 
+                    <div key={item.id} style={card}>
+                        <img src={item.image} alt={item.name} style={img}/>
+                        <h3>{item.name}</h3>
+                    </div>    
+                )}
+            </div>
+        </MainLayout>
         )
     }
 }
